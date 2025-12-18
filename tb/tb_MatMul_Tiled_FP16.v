@@ -1,13 +1,17 @@
-module tb_MatMul_Tiled_FP16;
+module tb_MatMul_Tiled;
 
     reg clk;
     reg rst;
     wire [31:0] cycle_count;
+    wire [31:0] mac_count;
+    wire [31:0] skipped_mac_count;
 
-    MatMul_Tiled_FP16 dut (
+    MatMul_Tiled dut (
         .clk(clk),
         .rst(rst),
-        .cycle_count(cycle_count)
+        .cycle_count(cycle_count),
+        .mac_count(mac_count),
+        .skipped_mac_count(skipped_mac_count)
     );
 
     always #5 clk = ~clk;
@@ -17,10 +21,10 @@ module tb_MatMul_Tiled_FP16;
         rst = 1;
         #20 rst = 0;
 
-        #500;
-        $display("Simulation completed");
-        $display("Total cycles: %d", cycle_count);
+        #1000;
+        $display("Cycles          : %d", cycle_count);
+        $display("MACs executed   : %d", mac_count);
+        $display("MACs skipped    : %d", skipped_mac_count);
         $stop;
     end
 endmodule
-
