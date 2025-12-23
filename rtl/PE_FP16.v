@@ -24,4 +24,3 @@ module PE_FP16 (
         end
     end
 endmodule
-
