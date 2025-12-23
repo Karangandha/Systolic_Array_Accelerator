@@ -21,4 +21,3 @@ module MatMul4x4_FP16 (
         end
     end
 endmodule
-
