@@ -1,4 +1,4 @@
-# Systolic_Array_Accelerator
+# Systolic_Array_Accelerator ( under development )
 # Systolic Array Hardware Accelerator
 
 This project implements a Verilog-based systolic array matrix multiplication
